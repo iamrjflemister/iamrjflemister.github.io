@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#p1 {
+    background-color: black;
+    color:greenyellow;
+    font-size: xx-large;
+    font-family: monospace;
+}
+#p2 {
+    color: blue;
+    font-size: larger;
+    font-family:'Times New Roman', Times, serif, 

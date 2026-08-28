@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+#p01 {
+    color: chartreuse;
+    background-color: brown;
+    font-size: x-large;
+}
+#p02 {
+    color: blue;
+    background-color: chartreuse;
+    font-size: medium;
+}
+#p03 {
+    color: crimson;
+    background-color: blue;
+    font-size: xx-large;
+}
+#p04 {
+    color: aqua;
+    background-color: hwb(25 0% 0%);
+    font-size: larger;
+}
+#p05 {
+    color: chartreuse;
+    background-color: blue;
+    font-size: larger;
+}
+#p06 {
+    color: deeppink;
+    background-color: darkblue;    
+}
+#p07 {
+    color: chartreuse;
+    background-color: brown;
+}
