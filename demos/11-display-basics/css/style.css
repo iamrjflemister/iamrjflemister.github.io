@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+p {
+    background-color: aqua;
+    display: block;
+}
+span {
+    background-color: rgb(202, 249, 50);
+}
+div {
+    background-color: bisque;
+}
