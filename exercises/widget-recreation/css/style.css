@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+#weather {
+    background-color: skyblue;
+    display: inline-block;
+    border-radius: 25px;
+    padding: 6px;
+    gap: 12px;
+    margin: 120px;
+    color: white;
+    width: 350px;
+    height: 80px;
+}
+#icon {
+    padding: 2px;
+    vertical-align: middle; 
+}
+p {
+    display: inline-block;
+    vertical-align: middle;
+}
