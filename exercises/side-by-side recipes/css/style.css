@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#single-column {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+img {
+    width: 100%;
+}
+.media-and-text {
+    display: flex;
+    align-items: center;
+    gap: 36px;   
+}
+.media-and-text .left-side {
+flex: 1;
+}
+
+.media-and-text .right-side {
+flex: 1;
+}
+.card {
+    border: 5px solid gray;
+    padding: 36px;
+    text-align: center;
+    margin: 36px 0px;
+    flex: 1;
+
+}
+.cards-container {
+    display: flex;
+    gap: 36px;
+}
