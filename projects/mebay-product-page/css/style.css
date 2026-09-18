@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+#condition {
+     font-weight: bolder;
+}
+#layout {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 48px auto;
+    min-height: 50vh;  
+    display: flex;
+}
+#thumbnail-column {
+   flex: 1;
+#buttons {
+    text-align: center;
+   border: 20px;
+    border-radius: 20px;
+}
+   
+-
+}
+#featured-image-column {
+   flex: 1;
+   
+}
+#Buy {
+    background-color: blue;
+    color: white;
+    border-radius: 25%;
+
+}
+#only-3 {
+    color: red;
+}
+#product-info-column {
+   flex: 1;
+   
+
+}
