@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+#hero {
+    background-image: url(../images/stars-on-velvet.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+}

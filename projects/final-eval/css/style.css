@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #15151d;
+    font-family: 'Roboto', sans-serif;
+    color: #222222;
+}
+
+.container {
+    width: 80%;
+    margin: 30px auto;
+    background-color: rgb(212, 255, 21);
+    text-align: center;
+}
+
+.header {
+    background-color: #222222;
+    color: white;
+    padding: 50px;
+}
+
+.header p {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.header h1 {
+    font-size: 45px;
+}
+
+.header h2 {
+    font-size: 30px;
+}
+
+.header h3 {
+    font-size: 20px;
+}
+
+
+.intro {
+    padding: 40px;
+}
+
+.intro h2 {
+    font-size: 28px;
+}
+
+.intro p {
+    font-size: 18px;
+}
+
+
+.teams {
+    background-color: #eeeeee;
+    padding: 40px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.team {
+    width: 40%;
+}
+
+.team img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.team h2 {
+    font-size: 24px;
+}
+
+.versus {
+    width: 20%;
+}
+
+
+.location {
+    padding: 40px;
+    font-size: 20px;
+}
+
+
+.rsvp {
+    background-color: #dddddd;
+    padding: 40px;
+}
+
+.rsvp h2 {
+    font-size: 30px;
+}
+
+
+.button {
+    display: inline-block;
+    padding: 15px 25px;
+    margin: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.yes {
+    background-color: green;
+}
+
+.no {
+    background-color: red;
+}
+
+
+.button:hover {
+    opacity: 0.7;
+}
+
+
+.footer {
+    background-color: #222222;
+    color: white;
+    padding: 20px;
+}
