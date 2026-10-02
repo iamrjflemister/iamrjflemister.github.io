@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lab Publishing | Turning Stories Into Impact</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Configuration for Custom Colors & Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#E6C665',
+                            500: '#D4AF37',
+                            600: '#B89320',
+                            700: '#8C6C11',
+                        },
+                        bronze: '#C5A059',
+                        dark: {
+                            900: '#0A0A0B',
+                            800: '#121214',
+                            700: '#1A1A1E',
+                            600: '#26262B',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar and ambient glow utilities */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #26262B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF0C3 0%, #D4AF37 50%, #9A7718 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border-glow {
+            box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.15);
+        }
+        .gold-border-glow:hover {
+            box-shadow: 0 0 30px 0px rgba(212, 175, 55, 0.3);
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-200 font-sans antialiased selection:bg-gold-500 selection:text-dark-900 overflow-x-hidden">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-900/90 backdrop-blur-md border-b border-dark-700/80 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-full border border-gold-500/50 flex items-center justify-center bg-dark-800 group-hover:border-gold-400 transition-colors">
+                        <span class="font-serif font-bold text-gold-500 text-xl tracking-tighter">TLP</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif text-lg tracking-widest font-bold text-white group-hover:text-gold-400 transition-colors uppercase">The Lab</span>
+                        <span class="text-[9px] tracking-[0.25em] text-gold-500 font-semibold uppercase -mt-1">Publishing Co.</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-xs uppercase tracking-widest text-gray-300 hover:text-gold-400 transition-colors">Home</a>
+                    <a href="#about" class="text-xs uppercase tracking-widest text-gray-300 hover:text-gold-400 transition-colors">About Us</a>
+                    <a href="#services" class="text-xs uppercase tracking-widest text-gray-300 hover:text-gold-400 transition-colors">Services</a>
+                    <a href="#books" class="text-xs uppercase tracking-widest text-gray-300 hover:text-gold-400 transition-colors">Books</a>
+                    <a href="#resources" class="text-xs uppercase tracking-widest text-gray-300 hover:text-gold-400 transition-colors">Free Resources</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-full border border-gold-500/40 text-gold-400 text-xs uppercase tracking-widest hover:bg-gold-500 hover:text-dark-900 transition-all font-semibold shadow-sm">
+                        Contact Us
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-gold-400 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-b border-dark-700 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="mobile-link block py-2 text-sm uppercase tracking-wider text-gray-300 hover:text-gold-400">Home</a>
+            <a href="#about" class="mobile-link block py-2 text-sm uppercase tracking-wider text-gray-300 hover:text-gold-400">About Us</a>
+            <a href="#services" class="mobile-link block py-2 text-sm uppercase tracking-wider text-gray-300 hover:text-gold-400">Services</a>
+            <a href="#books" class="mobile-link block py-2 text-sm uppercase tracking-wider text-gray-300 hover:text-gold-400">Books</a>
+            <a href="#resources" class="mobile-link block py-2 text-sm uppercase tracking-wider text-gray-300 hover:text-gold-400">Free Resources</a>
+            <a href="#contact" class="mobile-link block w-full text-center py-2.5 mt-2 rounded-full border border-gold-500 text-gold-400 text-sm uppercase tracking-wider font-semibold">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen pt-28 pb-16 flex items-center justify-center bg-grid-pattern overflow-hidden">
+        <!-- Ambient Glowing Background Bubbles -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gold-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-bronze/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-dark-800/80 text-gold-400 text-xs font-medium tracking-widest uppercase mb-8 backdrop-blur-sm">
+                <i class="fa-solid fa-feather-pointed text-xs"></i>
+                <span>Editorial • Publishing • Author Coaching</span>
+            </div>
+
+            <!-- Main Title -->
+            <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-tight">
+                Turning Stories Into <br />
+                <span class="gold-gradient-text italic font-normal">Impact</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-gray-400 text-lg sm:text-xl font-light mb-10 leading-relaxed">
+                Publishing books that inspire, empower, and transform. Partner with <strong class="text-white font-medium">The Lab Publishing Co.</strong> to evolve your raw manuscript into a legacy publication.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <button onclick="openModal('writer')" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-gold-500 to-bronze text-dark-900 font-bold text-xs uppercase tracking-widest hover:brightness-110 transition-all shadow-lg shadow-gold-500/20 flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Get Free Writer's Guide</span>
+                </button>
+                <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-full border border-dark-600 bg-dark-800/60 text-white font-semibold text-xs uppercase tracking-widest hover:border-gold-500/50 hover:bg-dark-800 transition-all flex items-center justify-center space-x-2">
+                    <span>Explore Services</span>
+                    <i class="fa-solid fa-arrow-right text-gold-400"></i>
+                </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-dark-700/60">
+                <div class="p-4">
+                    <p class="font-serif text-3xl sm:text-4xl font-bold text-white">37+</p>
+                    <p class="text-xs uppercase tracking-widest text-gold-400/80 mt-1">Publications & Projects</p>
+                </div>
+                <div class="p-4">
+                    <p class="font-serif text-3xl sm:text-4xl font-bold text-white">100%</p>
+                    <p class="text-xs uppercase tracking-widest text-gold-400/80 mt-1">Author Empowerment</p>
+                </div>
+                <div class="p-4">
+                    <p class="font-serif text-3xl sm:text-4xl font-bold text-white">3-Step</p>
+                    <p class="text-xs uppercase tracking-widest text-gold-400/80 mt-1">Writing Methodology</p>
+                </div>
+                <div class="p-4">
+                    <p class="font-serif text-3xl sm:text-4xl font-bold text-white">Global</p>
+                    <p class="text-xs uppercase tracking-widest text-gold-400/80 mt-1">Print & Distribution</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet The Owners Section -->
+    <section id="about" class="py-24 bg-dark-800/50 border-y border-dark-700/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">Leadership & Vision</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-bold text-white mt-2">Meet The Owners</h2>
+                <div class="w-16 h-0.5 bg-gold-500 mx-auto mt-4"></div>
+                <p class="text-gray-400 mt-4 text-base">The visionary team bringing structure, strategy, purpose, and excellence to every manuscript.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <!-- Yoshiko Richardson Card -->
+                <div class="bg-dark-800 rounded-2xl border border-dark-700 p-8 sm:p-10 gold-border-glow transition-all duration-300 flex flex-col md:flex-row gap-8 items-center md:items-start">
+                    <div class="w-40 h-48 sm:w-48 sm:h-56 rounded-xl overflow-hidden bg-dark-700 flex-shrink-0 border border-gold-500/30 relative shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Yoshiko Richardson" class="w-full h-full object-cover filter grayscale contrast-125 hover:grayscale-0 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-3 text-[10px] font-bold uppercase tracking-widest text-gold-400 bg-dark-900/80 px-2 py-0.5 rounded">Creative Dir.</span>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="font-serif text-3xl font-bold text-white">Yoshiko Richardson</h3>
+                        <p class="text-gold-400 text-xs uppercase tracking-widest font-semibold mt-1 mb-4">Editorial & Creative Director</p>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                            Visionary, writer, and strategist passionate about helping aspiring creators bring their stories to life. Yoshiko leads with creativity, purpose, and unwavering commitment to editorial excellence.
+                        </p>
+                        <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                            <span class="px-3 py-1 rounded-full bg-dark-700 text-xs text-gray-300 border border-dark-600">Editorial Strategy</span>
+                            <span class="px-3 py-1 rounded-full bg-dark-700 text-xs text-gray-300 border border-dark-600">Creative Mentorship</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- John Richardson Jr. Card -->
+                <div class="bg-dark-800 rounded-2xl border border-dark-700 p-8 sm:p-10 gold-border-glow transition-all duration-300 flex flex-col md:flex-row gap-8 items-center md:items-start">
+                    <div class="w-40 h-48 sm:w-48 sm:h-56 rounded-xl overflow-hidden bg-dark-700 flex-shrink-0 border border-gold-500/30 relative shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" alt="John Richardson Jr." class="w-full h-full object-cover filter grayscale contrast-125 hover:grayscale-0 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-3 text-[10px] font-bold uppercase tracking-widest text-gold-400 bg-dark-900/80 px-2 py-0.5 rounded">Author / CFO</span>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="font-serif text-3xl font-bold text-white">John Richardson Jr.</h3>
+                        <p class="text-gold-400 text-xs uppercase tracking-widest font-semibold mt-1 mb-4">Author, Mentor & CFO</p>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                            Leader, financial expert, and operations lead dedicated to building resilient publishing systems. John brings structure, financial strategy, and business longevity to every author's journey.
+                        </p>
+                        <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                            <span class="px-3 py-1 rounded-full bg-dark-700 text-xs text-gray-300 border border-dark-600">Author Coaching</span>
+                            <span class="px-3 py-1 rounded-full bg-dark-700 text-xs text-gray-300 border border-dark-600">Publishing Operations</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Resources / Lead Magnets Section -->
+    <section id="resources" class="py-24 bg-dark-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">Jumpstart Your Journey</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-bold text-white mt-2">Free Author Guides</h2>
+                <p class="text-gray-400 mt-4 text-base">Claim our signature blueprints designed to get your manuscript unblocked and market-ready.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Guide 1: Writer's Jumpstart Guide -->
+                <div class="bg-gradient-to-br from-dark-800 to-dark-700/60 p-8 sm:p-10 rounded-2xl border border-gold-500/30 flex flex-col justify-between relative overflow-hidden group">
+                    <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-gold-500/10 rounded-full blur-2xl group-hover:bg-gold-500/20 transition-all"></div>
+                    
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="px-3 py-1 bg-gold-500/10 border border-gold-500/40 text-gold-400 text-xs font-bold uppercase tracking-widest rounded-full">Free Download</span>
+                            <i class="fa-solid fa-book-open text-2xl text-gold-500"></i>
+                        </div>
+                        <h3 class="font-serif text-3xl font-bold text-white mb-2">Writer's Jumpstart Guide</h3>
+                        <p class="text-gold-400 font-medium text-sm mb-4">3 Simple Steps To Get Unstuck & Start Writing Today</p>
+                        <p class="text-gray-300 text-sm mb-8 leading-relaxed">
+                            Stop staring at a blank page. Learn our proven framework to overcome writer's block, establish a high-yield writing habit, and outline your core narrative.
+                        </p>
+                    </div>
+
+                    <button onclick="openModal('writer')" class="w-full py-3.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold text-xs uppercase tracking-widest transition-all flex items-center justify-center space-x-2 shadow-md">
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                        <span>Download Free Writing Guide</span>
+                    </button>
+                </div>
+
+                <!-- Guide 2: Free Book Release Guide -->
+                <div class="bg-gradient-to-br from-dark-800 to-dark-700/60 p-8 sm:p-10 rounded-2xl border border-dark-600 flex flex-col justify-between relative overflow-hidden group hover:border-gold-500/30 transition-all">
+                    <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-bronze/10 rounded-full blur-2xl group-hover:bg-bronze/20 transition-all"></div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="px-3 py-1 bg-dark-700 border border-dark-600 text-gray-300 text-xs font-bold uppercase tracking-widest rounded-full">Checklist</span>
+                            <i class="fa-solid fa-rocket text-2xl text-bronze"></i>
+                        </div>
+                        <h3 class="font-serif text-3xl font-bold text-white mb-2">Book Release Roadmap</h3>
+                        <p class="text-gold-400 font-medium text-sm mb-4">A Practical Blueprint To Launch Your Book Strong</p>
+                        <p class="text-gray-300 text-sm mb-8 leading-relaxed">
+                            A step-by-step release plan to prepare your pre-orders, coordinate printing timelines, engage early readers, and build momentum for release day.
+                        </p>
+                    </div>
+
+                    <button onclick="openModal('release')" class="w-full py-3.5 rounded-xl bg-dark-700 hover:bg-dark-600 border border-dark-500 text-white font-bold text-xs uppercase tracking-widest transition-all flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                        <span>Download Release Guide</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Book Showcase -->
+    <section id="books" class="py-24 bg-dark-800/80 border-y border-dark-700/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">Featured Publication</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-bold text-white mt-2">Rich Steps To Budgeting</h2>
+                <p class="text-gray-400 mt-2 text-base">By John Richardson Jr. • Published by The Lab Publishing Co.</p>
+            </div>
+
+            <div class="bg-dark-900 rounded-3xl border border-gold-500/20 p-8 sm:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Book Mockup Cover -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-gold-500/20 blur-2xl rounded-full group-hover:bg-gold-500/30 transition-all"></div>
+                        <div class="relative w-64 sm:w-72 h-96 bg-gradient-to-b from-dark-700 to-dark-900 rounded-lg shadow-2xl border-2 border-gold-500/40 p-6 flex flex-col justify-between transform group-hover:-translate-y-2 transition-transform duration-300">
+                            <div class="border border-gold-500/30 p-4 h-full flex flex-col justify-between text-center bg-dark-800/80">
+                                <div>
+                                    <span class="text-[9px] uppercase tracking-widest text-gold-400 font-bold block mb-2">The Rich Method</span>
+                                    <h4 class="font-serif text-2xl font-bold text-white leading-tight">RICH STEPS</h4>
+                                    <p class="text-xs font-serif text-gold-400 italic">to Budgeting</p>
+                                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-3">A Simple Guide To Taking Control Of Your Money</p>
+                                </div>
+                                <div class="my-4 flex justify-center">
+                                    <i class="fa-solid fa-coins text-3xl text-gold-500"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-white">JOHN RICHARDSON JR.</p>
+                                    <p class="text-[8px] uppercase tracking-wider text-gray-400 mt-0.5">Rich Financial Group</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book Description -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-gold-500/10 text-gold-400 text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-star"></i>
+                        <span>Bestselling Practical Guide</span>
+                    </div>
+                    
+                    <h3 class="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight">
+                        A Simple Guide To Taking Control Of Your Money & Building A Better Future
+                    </h3>
+
+                    <p class="text-gray-300 text-base leading-relaxed">
+                        In this empowering release, author John Richardson Jr. breaks down budgeting into simple, repeatable steps. Designed to eliminate financial overwhelm, this book guides readers toward financial sovereignty and sustainable wealth building.
+                    </p>
+
+                    <!-- Features checklist -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                        <div class="flex items-center space-x-3 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-gold-500"></i>
+                            <span>The R.I.C.H. Budgeting Method</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-gold-500"></i>
+                            <span>Actionable Financial Worksheets</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-gold-500"></i>
+                            <span>Debt Elimination Framework</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-sm text-gray-300">
+                            <i class="fa-solid fa-check text-gold-500"></i>
+                            <span>Wealth Mindset Shift</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 flex flex-wrap gap-4 items-center">
+                        <button onclick="alert('Redirecting to order platform...')" class="px-8 py-3.5 rounded-full bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold text-xs uppercase tracking-widest transition-all shadow-md">
+                            Get Your Copy
+                        </button>
+                        <a href="#contact" class="px-6 py-3.5 rounded-full border border-dark-600 text-gray-300 text-xs font-semibold uppercase tracking-widest hover:border-gold-500 hover:text-white transition-all">
+                            Publish Your Book Like This
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-dark-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">End-To-End Publishing</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-bold text-white mt-2">Publishing Services</h2>
+                <p class="text-gray-400 mt-4 text-base">From raw concept to published masterpiece, we provide complete support at every stage.</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-dark-800 p-8 rounded-2xl border border-dark-700 hover:border-gold-500/40 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white mb-3">Editorial & Manuscript Evaluation</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Comprehensive developmental editing, copy editing, and proofreading to refine your voice and elevate story resonance.
+                    </p>
+                    <ul class="text-xs text-gray-400 space-y-2 border-t border-dark-700 pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-angle-right text-gold-500 mr-2"></i> Developmental Editing</li>
+                        <li class="flex items-center"><i class="fa-solid fa-angle-right text-gold-500 mr-2"></i> Line & Copy Editing</li>
+                        <li class="flex items-center"><i class="fa-solid fa-angle-right text-gold-500 mr-2"></i> Proofreading & Formatting</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-dark-800 p-8 rounded-2xl border border-dark-700 hover:border-gold-500/40 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white mb-3">Author Coaching & Mentorship</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        One-on-one coaching for aspiring authors needing accountability, outline clarity, and confidence through the writing journey.
+                    </p>
+                    <ul class="text-xs text-gray-400 space-y-2 border-t border-dark-700 pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-angle-right text-gold-500 mr-2"></i> 1-on-1 Strategy Sessions</li>
+                        <li class="flex items-center"><i class="fa-solid fa-angle-right text-gold-500 mr-2"></i> Writing Accountability</li>
+                        <li class="flex items-center"><i class="fa-solid fa-angle-right text-gold-500 mr-2"></i> Outline & Chapter Structuring</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-dark-800 p-8 rounded-2xl border border-dark-700 hover:border-gold-500/40 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white mb-3">Cover & Interior Design</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Bespoke typography, striking cover artwork, and interior formatting optimized for both print and digital eBook platforms.
+                    </p>
+                    <ul class="text-xs text-gray-400 space-y-2 border-t border-dark-700 pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-angle-right text-gold-500 mr-2"></i> Custom Cover Artwork</li>
+                        <li class="flex items-center"><i class="fa-solid fa-angle-right text-gold-500 mr-2"></i> Interior Typesetting</li>
+                        <li class="flex items-center"><i class="fa-solid fa-angle-right text-gold-500 mr-2"></i> Kindle & Print Layouts</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-dark-800 p-8 rounded-2xl border border-dark-700 hover:border-gold-500/40 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-print"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white mb-3">Printing & Production</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Eliminate printing delays and quality issues. We handle paper choice, binding quality, and high-standard physical production.
+                    </p>
+                    <ul class="text-xs text-gray-400 space-y-2 border-t border-dark-700 pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-angle-right text-gold-500 mr-2"></i> Hardcover & Paperback</li>
+                        <li class="flex items-center"><i class="fa-solid fa-angle-right text-gold-500 mr-2"></i> Premium Paper Stock Options</li>
+                        <li class="flex items-center"><i class="fa-solid fa-angle-right text-gold-500 mr-2"></i> Bulk Author Copies</li>
+                    </ul>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-dark-800 p-8 rounded-2xl border border-dark-700 hover:border-gold-500/40 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white mb-3">Book Release Strategy</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Launch your book with purpose. From pre-order funnels to press releases, we make sure your story gets in front of readers.
+                    </p>
+                    <ul class="text-xs text-gray-400 space-y-2 border-t border-dark-700 pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-angle-right text-gold-500 mr-2"></i> Launch Campaign Planning</li>
+                        <li class="flex items-center"><i class="fa-solid fa-angle-right text-gold-500 mr-2"></i> Amazon & Retail Distribution</li>
+                        <li class="flex items-center"><i class="fa-solid fa-angle-right text-gold-500 mr-2"></i> PR & Media Kit Creation</li>
+                    </ul>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-dark-800 p-8 rounded-2xl border border-dark-700 hover:border-gold-500/40 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-3">Full-Service Publishing Package</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            The complete, white-glove publishing solution from blank page to published author.
+                        </p>
+                    </div>
+                    <a href="#contact" class="inline-flex items-center space-x-2 text-xs uppercase tracking-widest text-gold-400 font-bold hover:text-white transition-colors">
+                        <span>Inquire About Package</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Author Submission Section -->
+    <section id="contact" class="py-24 bg-dark-800/40 border-t border-dark-700 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">Start Your Publishing Journey</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-bold text-white mt-2">Submit Your Book Idea</h2>
+                <p class="text-gray-400 mt-3 text-base">Ready to transform your manuscript into an impactful book? Send us your project details today.</p>
+            </div>
+
+            <!-- Contact Form Card -->
+            <div class="bg-dark-800 border border-dark-700 p-8 sm:p-12 rounded-3xl gold-border-glow">
+                <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-300 font-semibold mb-2">First & Last Name</label>
+                            <input type="text" required placeholder="e.g. Maya Angelou" class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-dark-600 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-300 font-semibold mb-2">Email Address</label>
+                            <input type="email" required placeholder="author@example.com" class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-dark-600 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors text-sm">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-300 font-semibold mb-2">Book Title / Working Idea</label>
+                            <input type="text" placeholder="Title or topic..." class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-dark-600 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-300 font-semibold mb-2">Current Stage</label>
+                            <select class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-dark-600 text-white focus:outline-none focus:border-gold-500 transition-colors text-sm">
+                                <option value="idea">Initial Idea / Concept</option>
+                                <option value="writing">Currently Writing Manuscript</option>
+                                <option value="finished">Completed Manuscript Ready for Editing</option>
+                                <option value="republishing">Looking to Republish / Print</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-300 font-semibold mb-2">Tell Us About Your Vision</label>
+                        <textarea rows="4" required placeholder="Describe your story, target audience, and how we can best support you..." class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-dark-600 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors text-sm"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-gold-500 to-bronze text-dark-900 font-bold text-xs uppercase tracking-widest hover:brightness-110 transition-all shadow-lg shadow-gold-500/20">
+                        Submit Consultation Request
+                    </button>
+                </form>
+
+                <!-- Form Success State -->
+                <div id="contact-success" class="hidden text-center py-12 space-y-4">
+                    <div class="w-16 h-16 bg-gold-500/20 border border-gold-500 rounded-full flex items-center justify-center mx-auto text-gold-400 text-2xl">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3 class="font-serif text-3xl font-bold text-white">Message Received!</h3>
+                    <p class="text-gray-300 text-sm max-w-md mx-auto">Thank you for connecting with The Lab Publishing Co. Our team will review your manuscript details and respond within 24-48 business hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-dark-700 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Brand -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-full border border-gold-500 flex items-center justify-center bg-dark-800">
+                        <span class="font-serif font-bold text-gold-500 text-sm">TLP</span>
+                    </div>
+                    <span class="font-serif text-base tracking-widest uppercase font-bold text-white">The Lab Publishing</span>
+                </div>
+
+                <!-- Tagline -->
+                <p class="text-xs text-gray-400 tracking-wider">
+                    "Turning stories into impact" • Publishing books that inspire, empower & transform.
+                </p>
+
+                <!-- Social Links -->
+                <div class="flex space-x-5">
+                    <a href="https://www.instagram.com/thelabpublishing/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-dark-800 border border-dark-700 flex items-center justify-center text-gray-400 hover:text-gold-400 hover:border-gold-500/50 transition-colors">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-dark-800 border border-dark-700 flex items-center justify-center text-gray-400 hover:text-gold-400 hover:border-gold-500/50 transition-colors">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                    <a href="mailto:info@thelabpublishing.com" class="w-9 h-9 rounded-full bg-dark-800 border border-dark-700 flex items-center justify-center text-gray-400 hover:text-gold-400 hover:border-gold-500/50 transition-colors">
+                        <i class="fa-regular fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-dark-800 text-center text-[11px] text-gray-400">
+                © <span id="year"></span> The Lab Publishing Co. All rights reserved. Built with elegance and strategy.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Download Modal -->
+    <div id="guide-modal" class="fixed inset-0 z-50 flex items-center justify-center px-4 bg-dark-900/80 backdrop-blur-md hidden transition-opacity">
+        <div class="bg-dark-800 border border-gold-500/30 rounded-3xl p-8 max-w-md w-full relative shadow-2xl gold-border-glow">
+            <button onclick="closeModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white text-xl p-1">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div id="modal-form-content">
+                <div class="text-center mb-6">
+                    <span class="w-12 h-12 bg-gold-500/10 border border-gold-500/30 rounded-full flex items-center justify-center text-gold-400 text-xl mx-auto mb-3">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                    </span>
+                    <h3 id="modal-title" class="font-serif text-2xl font-bold text-white">Writer's Jumpstart Guide</h3>
+                    <p class="text-xs text-gray-400 mt-1">Enter your details to receive your instant free download link.</p>
+                </div>
+
+                <form onsubmit="handleModalSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-300 font-semibold mb-1">Your Name</label>
+                        <input type="text" required placeholder="John Doe" class="w-full px-4 py-2.5 rounded-xl bg-dark-900 border border-dark-600 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 text-xs">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-300 font-semibold mb-1">Email Address</label>
+                        <input type="email" required placeholder="john@example.com" class="w-full px-4 py-2.5 rounded-xl bg-dark-900 border border-dark-600 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 text-xs">
+                    </div>
+                    <button type="submit" class="w-full py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold text-xs uppercase tracking-widest transition-all mt-2">
+                        Send Me The Guide
+                    </button>
+                </form>
+            </div>
+
+            <!-- Modal Success State -->
+            <div id="modal-success-content" class="hidden text-center py-6 space-y-4">
+                <i class="fa-solid fa-circle-check text-4xl text-gold-500"></i>
+                <h4 class="font-serif text-2xl font-bold text-white">Guide On Its Way!</h4>
+                <p class="text-xs text-gray-300">We've dispatched your free download link to your email inbox. Happy writing!</p>
+                <button onclick="closeModal()" class="px-6 py-2 rounded-full border border-dark-600 text-xs uppercase tracking-widest text-gray-300 hover:text-white">
+                    Close Window
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Dynamic Footer Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Modal Controls
+        const modal = document.getElementById('guide-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalFormContent = document.getElementById('modal-form-content');
+        const modalSuccessContent = document.getElementById('modal-success-content');
+
+        function openModal(type) {
+            modalFormContent.classList.remove('hidden');
+            modalSuccessContent.classList.add('hidden');
+            if (type === 'release') {
+                modalTitle.textContent = "Book Release Roadmap";
+            } else {
+                modalTitle.textContent = "Writer's Jumpstart Guide";
+            }
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            modalFormContent.classList.add('hidden');
+            modalSuccessContent.classList.remove('hidden');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            document.getElementById('contact-form').classList.add('hidden');
+            document.getElementById('contact-success').classList.remove('hidden');
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

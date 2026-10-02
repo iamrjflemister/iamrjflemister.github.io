@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+/* General Styles */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #222;
+}
+
+/* Navigation */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: white;
+}
+
+nav h2 {
+    margin: 0;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: #222;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Hero */
+
+.hero {
+    height: 600px;
+    background-image: url("hi-res/hero.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 60px;
+    margin-bottom: 25px;
+}
+
+/* Buttons */
+
+.button {
+    display: inline-block;
+    background-color: white;
+    color: #222;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #ddd;
+}
+
+/* Gallery */
+
+.gallery-section {
+    padding: 60px 50px;
+    text-align: center;
+}
+
+.gallery-section h2 {
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Cards */
+
+.cards {
+    display: flex;
+    gap: 25px;
+    padding: 50px;
+    background-color: #f2f2f2;
+}
+
+.card {
+    flex: 1;
+    background-color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.card .button {
+    background-color: #222;
+    color: white;
+}
+
+/* Responsive Design */
+
+@media screen and (max-width: 700px) {
+
+    nav {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .hero {
+        height: 450px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero-content {
+        padding: 25px;
+    }
+
+    .gallery-section {
+        padding: 40px 20px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery img {
+        height: 300px;
+    }
+
+    .cards {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+
+    .card {
+        padding: 25px;
+    }
+}
