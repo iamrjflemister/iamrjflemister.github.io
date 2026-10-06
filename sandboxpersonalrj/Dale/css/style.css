@@ -1,0 +1,1028 @@
+/* =====================================================
+   GENERAL SETTINGS
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =====================================================
+   COLORS
+===================================================== */
+
+:root {
+
+    --black: #080808;
+    --dark: #111111;
+    --dark-gray: #1b1b1b;
+
+    --gold: #d8a82f;
+    --gold-light: #f0c85a;
+
+    --white: #ffffff;
+    --gray: #aaaaaa;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(8, 8, 8, 0.88);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.nav-container {
+    width: min(1200px, 92%);
+    margin: auto;
+
+    min-height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 1px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo span {
+    width: 35px;
+    height: 35px;
+
+    display: grid;
+    place-items: center;
+
+    border: 2px solid var(--gold);
+    color: var(--gold);
+
+    font-size: 12px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    color: #cccccc;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.nav-button {
+    padding: 12px 20px;
+
+    background: var(--gold);
+    color: #000;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    transition: 0.3s;
+}
+
+.nav-button:hover {
+    background: white;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.95) 0%,
+            rgba(0,0,0,0.75) 45%,
+            rgba(0,0,0,0.25) 100%
+        ),
+        url("cordale-hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(1200px, 92%);
+    margin: auto;
+
+    padding-top: 80px;
+}
+
+.eyebrow,
+.section-tag {
+    color: var(--gold);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: "Anton", sans-serif;
+
+    font-size: clamp(70px, 10vw, 150px);
+
+    line-height: 0.88;
+
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero-text {
+    max-width: 550px;
+
+    margin-top: 35px;
+
+    font-size: 18px;
+    color: #d1d1d1;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+.gold-button,
+.outline-button {
+    display: inline-block;
+
+    padding: 16px 26px;
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.gold-button {
+    background: var(--gold);
+    color: #000;
+}
+
+.gold-button:hover {
+    background: white;
+    transform: translateY(-3px);
+}
+
+.outline-button {
+    border: 1px solid white;
+    color: white;
+}
+
+.outline-button:hover {
+    background: white;
+    color: #000;
+}
+
+.hero-badge {
+    position: absolute;
+    right: 5%;
+    bottom: 50px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    color: var(--gold);
+}
+
+.hero-badge span {
+    font-family: "Anton", sans-serif;
+    font-size: 45px;
+}
+
+.hero-badge small {
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   INTRO STRIP
+===================================================== */
+
+.intro-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.intro-strip div {
+    min-height: 120px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    border-right: 1px solid #333;
+
+    text-align: center;
+
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.intro-strip strong {
+    color: var(--gold);
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.section {
+    width: min(1200px, 92%);
+    margin: auto;
+
+    padding-top: 130px;
+    padding-bottom: 130px;
+}
+
+.section-number {
+    color: var(--gold);
+
+    font-family: "Anton", sans-serif;
+    font-size: 20px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image img {
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+
+    filter: grayscale(15%);
+}
+
+.image-label {
+    position: absolute;
+
+    bottom: 20px;
+    left: 20px;
+
+    background: rgba(0,0,0,0.85);
+
+    padding: 15px 20px;
+}
+
+.image-label span {
+    display: block;
+
+    color: var(--gold);
+
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.image-label small {
+    color: white;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.about h2,
+.training h2,
+.gallery h2,
+.youtube h2,
+.connect h2 {
+    font-family: "Anton", sans-serif;
+
+    font-size: clamp(55px, 7vw, 95px);
+
+    line-height: 0.9;
+
+    margin-bottom: 30px;
+}
+
+.about h2 span,
+.training h2 span,
+.gallery h2 span,
+.youtube h2 span,
+.connect h2 span {
+    color: var(--gold);
+}
+
+.about-content p {
+    color: #bdbdbd;
+
+    margin-bottom: 20px;
+
+    max-width: 540px;
+}
+
+.about-content strong {
+    color: white;
+}
+
+.text-link {
+    display: inline-block;
+
+    color: var(--gold);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    margin-top: 10px;
+
+    border-bottom: 1px solid var(--gold);
+
+    padding-bottom: 5px;
+}
+
+
+/* =====================================================
+   TRAINING
+===================================================== */
+
+.training {
+    max-width: 1400px;
+}
+
+.training-heading {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: end;
+
+    gap: 50px;
+
+    margin-bottom: 60px;
+}
+
+.heading-description {
+    max-width: 400px;
+
+    color: #aaa;
+
+    font-size: 15px;
+}
+
+.training-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 2px;
+}
+
+.training-card {
+    position: relative;
+
+    background: #111;
+
+    padding: 45px 35px;
+
+    min-height: 350px;
+
+    border: 1px solid #242424;
+
+    transition: 0.3s;
+}
+
+.training-card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--gold);
+}
+
+.training-card.featured {
+    background: linear-gradient(
+        145deg,
+        #181818,
+        #0c0c0c
+    );
+}
+
+.card-number {
+    position: absolute;
+
+    top: 25px;
+    right: 25px;
+
+    color: #555;
+
+    font-size: 12px;
+}
+
+.card-icon {
+    width: 55px;
+    height: 55px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--gold);
+
+    color: var(--gold);
+
+    font-weight: 800;
+
+    margin-bottom: 50px;
+}
+
+.training-card h3 {
+    font-family: "Anton", sans-serif;
+
+    font-size: 35px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 15px;
+}
+
+.training-card p {
+    color: #999;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.gallery-heading {
+    margin-bottom: 45px;
+}
+
+.photo-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    grid-auto-rows: 300px;
+
+    gap: 12px;
+}
+
+.photo {
+    overflow: hidden;
+
+    background: #151515;
+}
+
+.photo img {
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s;
+}
+
+.photo:hover img {
+    transform: scale(1.05);
+}
+
+.photo-large {
+    grid-row: span 2;
+}
+
+.photo-wide {
+    grid-column: span 2;
+}
+
+
+/* =====================================================
+   STORE
+===================================================== */
+
+.store-section {
+    min-height: 600px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #111 0%,
+            #111 50%,
+            #080808 100%
+        );
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 100px max(4%, calc((100% - 1200px) / 2));
+
+    border-top: 1px solid #292929;
+    border-bottom: 1px solid #292929;
+}
+
+.store-content {
+    max-width: 650px;
+}
+
+.store-section h2 {
+    font-family: "Anton", sans-serif;
+
+    font-size: clamp(60px, 8vw, 110px);
+
+    line-height: 0.88;
+
+    margin-bottom: 30px;
+}
+
+.store-section h2 span {
+    color: var(--gold);
+}
+
+.store-section p {
+    color: #aaa;
+
+    max-width: 500px;
+
+    margin-bottom: 30px;
+}
+
+.store-mark {
+    width: 300px;
+    height: 300px;
+
+    border: 1px solid var(--gold);
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    transform: rotate(5deg);
+}
+
+.store-mark span {
+    font-family: "Anton", sans-serif;
+
+    font-size: 100px;
+
+    color: var(--gold);
+}
+
+.store-mark small {
+    letter-spacing: 3px;
+}
+
+
+/* =====================================================
+   YOUTUBE
+===================================================== */
+
+.youtube {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 80px;
+}
+
+.youtube-content p:not(.section-tag) {
+    color: #aaa;
+
+    max-width: 500px;
+
+    margin-bottom: 30px;
+}
+
+.youtube-box {
+    min-height: 450px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #2a2a2a,
+            #080808
+        );
+
+    border: 1px solid #333;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.play-button {
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--gold);
+
+    color: #000;
+
+    font-size: 24px;
+
+    margin-bottom: 25px;
+}
+
+.youtube-box p {
+    font-family: "Anton", sans-serif;
+
+    font-size: 40px;
+
+    text-align: center;
+}
+
+.youtube-box span {
+    color: var(--gold);
+}
+
+
+/* =====================================================
+   SOCIAL
+===================================================== */
+
+.connect {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+}
+
+.social-links {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.social-links a {
+    display: grid;
+
+    grid-template-columns: 50px 1fr 30px;
+
+    align-items: center;
+
+    padding: 22px 0;
+
+    border-bottom: 1px solid #333;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--gold);
+
+    padding-left: 10px;
+}
+
+.social-links span {
+    color: var(--gold);
+
+    font-size: 11px;
+}
+
+.social-links strong {
+    text-align: right;
+
+    font-size: 20px;
+}
+
+
+/* =====================================================
+   FINAL CTA
+===================================================== */
+
+.final-cta {
+    min-height: 600px;
+
+    display: grid;
+
+    place-items: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.65),
+            rgba(0,0,0,0.95)
+        ),
+        url("cordale-final.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+.final-cta p:first-child {
+    color: var(--gold);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+}
+
+.final-cta h2 {
+    font-family: "Anton", sans-serif;
+
+    font-size: clamp(70px, 12vw, 170px);
+
+    line-height: 0.85;
+
+    margin: 20px 0;
+}
+
+.final-cta h2 span {
+    color: var(--gold);
+}
+
+.final-text {
+    color: #aaa;
+
+    margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    padding: 50px 20px;
+
+    text-align: center;
+
+    border-top: 1px solid #292929;
+
+    background: #050505;
+}
+
+.footer-logo {
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #777;
+
+    font-size: 12px;
+}
+
+.copyright {
+    margin-top: 25px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 850px) {
+
+    nav {
+        display: none;
+    }
+
+    .nav-container {
+        justify-content: space-between;
+    }
+
+    .hero {
+        min-height: 850px;
+
+        background-position: 65% center;
+    }
+
+    .hero h1 {
+        font-size: 75px;
+    }
+
+    .hero-text {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .intro-strip {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .intro-strip div:nth-child(2) {
+        border-right: none;
+    }
+
+    .about,
+    .youtube,
+    .connect {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .training-heading {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .training-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .training-card {
+        min-height: 280px;
+    }
+
+    .photo-grid {
+        grid-template-columns: 1fr 1fr;
+
+        grid-auto-rows: 250px;
+    }
+
+    .photo-large {
+        grid-row: span 1;
+    }
+
+    .photo-wide {
+        grid-column: span 2;
+    }
+
+    .store-section {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 60px;
+    }
+
+    .store-mark {
+        width: 220px;
+        height: 220px;
+    }
+
+    .store-mark span {
+        font-size: 75px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .logo {
+        font-size: 11px;
+    }
+
+    .nav-button {
+        padding: 10px 14px;
+
+        font-size: 10px;
+    }
+
+    .hero h1 {
+        font-size: 65px;
+    }
+
+    .hero-badge {
+        display: none;
+    }
+
+    .intro-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-strip div {
+        border-right: none;
+        border-bottom: 1px solid #333;
+    }
+
+    .section {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    .photo-grid {
+        grid-template-columns: 1fr;
+
+        grid-auto-rows: 300px;
+    }
+
+    .photo-wide {
+        grid-column: span 1;
+    }
+
+    .youtube-box {
+        min-height: 350px;
+    }
+
+}
