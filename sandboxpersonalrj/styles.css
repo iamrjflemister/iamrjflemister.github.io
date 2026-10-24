@@ -1,0 +1,466 @@
+/* ============================================================
+   RJ Flemister — Portfolio
+   Plain CSS: no frameworks, so every rule here is readable.
+   Look: The Foundry brand — cinematic near-black, silver,
+   molten orange accent, tall condensed headlines (Bebas Neue)
+   over full-bleed photos.
+   ============================================================ */
+
+/* ---------- Basic reset & page defaults ---------- */
+* {
+  box-sizing: border-box; /* padding counts inside widths, not added on top */
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0e0e11;
+  color: #f5f1e8;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: #FF7A1A;
+}
+
+/* Big condensed headlines, like the reference site */
+h1, .section-title {
+  font-family: "Bebas Neue", "Arial Narrow", Arial, sans-serif;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.section-title {
+  font-size: 2.75rem;
+  margin: 0 0 1.5rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+  color: #FF7A1A;
+  margin: 2.5rem 0 1rem;
+}
+
+/* ---------- Header / navigation (sticks to the top) ---------- */
+.site-header {
+  position: sticky; /* stays visible while scrolling */
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  padding: 0.9rem 5%;
+  background-color: rgba(11, 11, 14, 0.95); /* almost solid black */
+}
+
+/* The Foundry logo image in the header */
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 54px; /* tall enough for the wordmark to stay readable */
+  width: auto;
+}
+
+.site-header nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.4rem;
+}
+
+.site-header nav a {
+  color: #f5f1e8;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+}
+
+.site-header nav a:hover {
+  color: #FF7A1A;
+}
+
+/* The outlined Book Now button in the nav */
+.site-header nav a.book-button {
+  border: 2px solid #FF7A1A;
+  color: #FF7A1A;
+  padding: 0.45rem 1.1rem;
+  font-weight: bold;
+}
+
+.site-header nav a.book-button:hover {
+  background-color: #FF7A1A;
+  color: #101014;
+}
+
+/* ---------- Hero (full-screen top section) ---------- */
+.hero {
+  min-height: 92vh; /* almost the whole screen, like the reference */
+  display: flex;
+  align-items: center;
+  padding: 4rem 5%;
+  /* RJ's photo as the background, under a dark layer so text reads.
+     The dark layer is strongest on the left, where the text sits. */
+  background-image:
+    linear-gradient(to right, rgba(8, 8, 10, 0.88) 30%, rgba(8, 8, 10, 0.45) 70%, rgba(8, 8, 10, 0.35)),
+    url("images/rj-hero.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-text {
+  max-width: 620px;
+}
+
+.hero-hello {
+  font-family: "Bebas Neue", "Arial Narrow", Arial, sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.15em;
+  margin: 0;
+  color: #f5f1e8;
+}
+
+.hero h1 {
+  font-size: 5.5rem;
+  margin: 0.25rem 0 1rem;
+  color: #fff8ea;
+}
+
+.hero-intro {
+  font-size: 1.1rem;
+  color: #e8e2d4;
+  margin: 0 0 1rem;
+}
+
+.hero-verse {
+  font-style: italic;
+  color: #cccccc;
+  margin: 0 0 1.75rem;
+}
+
+/* ---------- Picture Day page banner (shorter hero) ---------- */
+.page-hero {
+  min-height: 55vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 5%;
+  background-image:
+    linear-gradient(to right, rgba(8, 8, 10, 0.88) 30%, rgba(8, 8, 10, 0.5) 70%, rgba(8, 8, 10, 0.4)),
+    url("images/school-5.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.page-hero h1 {
+  font-size: 4.5rem;
+  margin: 0.25rem 0 1rem;
+  color: #fff8ea;
+}
+
+.hero-eyebrow {
+  font-family: "Bebas Neue", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.2em;
+  color: #FF7A1A;
+  margin: 0;
+}
+
+.hero-roles {
+  font-size: 1.35rem;
+  color: #FF7A1A;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+/* ---------- Buttons ---------- */
+.button {
+  display: inline-block;
+  background-color: #FF7A1A;
+  color: #101014;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  margin-right: 0.75rem;
+}
+
+.button-outline {
+  background-color: transparent;
+  color: #f5f1e8;
+  border: 2px solid #f5f1e8;
+}
+
+.button-outline:hover {
+  border-color: #FF7A1A;
+  color: #FF7A1A;
+}
+
+/* ---------- Page sections ---------- */
+.section {
+  padding: 3.5rem 5%;
+  max-width: 1200px;
+  margin: 0 auto; /* centers the section on wide screens */
+}
+
+/* ---------- Gallery filter buttons ---------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.filter-button {
+  background: none;
+  border: 1px solid #3a3a42;
+  color: #f5f1e8;
+  font-family: inherit;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.55rem 1.1rem;
+  cursor: pointer;
+}
+
+.filter-button:hover {
+  border-color: #FF7A1A;
+  color: #FF7A1A;
+}
+
+/* The filter currently in use */
+.filter-button.active {
+  background-color: #FF7A1A;
+  border-color: #FF7A1A;
+  color: #101014;
+  font-weight: bold;
+}
+
+/* ---------- Work gallery (masonry-style columns) ---------- */
+/* CSS columns stack the photos at their natural heights,
+   which gives the staggered masonry look of the reference. */
+.work-grid {
+  columns: 3;
+  column-gap: 1rem;
+}
+
+.work-item {
+  margin: 0 0 1rem;
+  break-inside: avoid; /* never split one item across two columns */
+}
+
+.work-item img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* Design pieces sit on a dark card and use "contain",
+   so logos and cover art are never cropped. */
+.design-item {
+  background-color: #1a1a20;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.design-item img {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
+.design-item figcaption {
+  text-align: center;
+  color: #cccccc;
+  padding-top: 0.75rem;
+}
+
+.picture-day-link {
+  margin-top: 1.5rem;
+}
+
+/* ---------- About ---------- */
+.about {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-photo {
+  width: 40%;
+  border-radius: 6px;
+}
+
+.signature {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.specialties {
+  color: #cccccc;
+}
+
+/* ---------- Photo rows (picture day page gallery) ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* ---------- Testimonials ---------- */
+/* Reviews sit in two masonry-style columns on wide screens,
+   the same stacking trick as the work gallery. */
+.reviews-summary {
+  color: #FF7A1A;
+  font-weight: bold;
+  margin-top: -0.75rem;
+}
+
+.reviews-grid {
+  columns: 2;
+  column-gap: 1.5rem;
+}
+
+blockquote {
+  background-color: #1a1a20;
+  border-left: 4px solid #FF7A1A;
+  margin: 0 0 1.5rem;
+  padding: 1.25rem 1.5rem;
+  break-inside: avoid; /* never split one review across two columns */
+}
+
+blockquote p {
+  margin-top: 0;
+}
+
+blockquote cite {
+  color: #FF7A1A;
+  font-style: normal;
+  font-weight: bold;
+}
+
+/* ---------- Footer / contact ---------- */
+.site-footer {
+  text-align: center;
+  padding: 3.5rem 5%;
+  background-color: #0b0b0e;
+}
+
+.site-footer .section-title {
+  margin-bottom: 0.75rem;
+}
+
+.fine-print {
+  color: #8a8474;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+/* ---------- Picture Day page: checklist, prices, steps ---------- */
+.checklist {
+  list-style: none; /* we draw our own gold check marks */
+  padding: 0;
+}
+
+.checklist li {
+  padding: 0.5rem 0 0.5rem 2rem;
+  position: relative;
+}
+
+.checklist li::before {
+  content: "✓";        /* the check mark itself */
+  color: #FF7A1A;      /* molten orange, the Foundry accent */
+  font-weight: bold;
+  position: absolute;
+  left: 0.25rem;
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse; /* one clean grid, no double lines */
+  margin: 1rem 0;
+}
+
+.price-table th,
+.price-table td {
+  border: 1px solid #3a3a42;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.price-table th {
+  background-color: #1a1a20;
+  color: #FF7A1A;
+}
+
+.steps li {
+  margin-bottom: 1rem;
+}
+
+/* ---------- Medium screens (tablets) ---------- */
+@media (max-width: 900px) {
+  .work-grid {
+    columns: 2;
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+  }
+
+  .page-hero h1 {
+    font-size: 3.25rem;
+  }
+}
+
+/* ---------- Small screens (phones) ---------- */
+@media (max-width: 600px) {
+  .work-grid {
+    columns: 1;
+  }
+
+  .reviews-grid {
+    columns: 1;
+  }
+
+  .about {
+    flex-direction: column; /* stack photo under text instead of beside it */
+  }
+
+  .about-photo {
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .page-hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .site-header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .site-header nav {
+    justify-content: center;
+  }
+}
