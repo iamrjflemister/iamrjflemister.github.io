@@ -320,11 +320,25 @@ h3 {
 }
 
 /* ---------- Testimonials ---------- */
+/* Reviews sit in two masonry-style columns on wide screens,
+   the same stacking trick as the work gallery. */
+.reviews-summary {
+  color: #e0a526;
+  font-weight: bold;
+  margin-top: -0.75rem;
+}
+
+.reviews-grid {
+  columns: 2;
+  column-gap: 1.5rem;
+}
+
 blockquote {
   background-color: #1a1a20;
   border-left: 4px solid #e0a526;
   margin: 0 0 1.5rem;
   padding: 1.25rem 1.5rem;
+  break-inside: avoid; /* never split one review across two columns */
 }
 
 blockquote p {
@@ -413,6 +427,10 @@ blockquote cite {
 /* ---------- Small screens (phones) ---------- */
 @media (max-width: 600px) {
   .work-grid {
+    columns: 1;
+  }
+
+  .reviews-grid {
     columns: 1;
   }
 
