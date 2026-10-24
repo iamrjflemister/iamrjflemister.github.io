@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- This line makes the site resize properly on phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RJ Flemister | Graphic Design &amp; Photography</title>
+  <meta name="description" content="Portfolio of RJ Flemister — graphic designer and photographer in Houston, Texas. Brand design, cover art, portraits, school picture days, events and lifestyle photography.">
+  <!-- Bebas Neue: the tall, condensed font used for the big headlines -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <!-- This connects the CSS file that controls how everything looks -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ================= HEADER / NAVIGATION ================= -->
+  <header class="site-header">
+    <p class="logo">RJ FLEMISTER</p>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#work">Work</a>
+      <a href="picture-day.html">Picture Day</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Kind Words</a>
+      <a class="book-button" href="#contact">Book Now</a>
+    </nav>
+  </header>
+
+  <!-- ================= HERO (FULL-SCREEN TOP SECTION) ================= -->
+  <!-- The photo sits behind the text, darkened so the words stay readable -->
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <p class="hero-hello">Hello!</p>
+      <h1>I'm RJ Flemister</h1>
+      <p class="hero-intro">I'm a graphic designer and photographer based in Houston, Texas. I bring visions to life — brand design, cover art, portraits, and picture days — and I can't wait to help you make your ideas shine.</p>
+      <p class="hero-verse">&ldquo;&hellip;the Lord doubled everything he had once possessed.&rdquo; — Job 42:10</p>
+      <p class="hero-buttons">
+        <a class="button" href="#contact">Contact me</a>
+        <a class="button button-outline" href="#work">See my work</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= WORK (FILTERABLE GALLERY) ================= -->
+  <main id="work" class="section">
+    <h2 class="section-title">My Work</h2>
+
+    <!-- Filter buttons: clicking one shows only that kind of work.
+         The matching code lives at the bottom of this page. -->
+    <div class="filters">
+      <button class="filter-button active" data-filter="all">All</button>
+      <button class="filter-button" data-filter="design">Design</button>
+      <button class="filter-button" data-filter="portraits">Portraits</button>
+      <button class="filter-button" data-filter="picture-day">Picture Day</button>
+      <button class="filter-button" data-filter="events">Events &amp; Lifestyle</button>
+    </div>
+
+    <!-- One grid holding every piece. Each item is tagged with
+         data-category so the filter knows where it belongs. -->
+    <div class="work-grid">
+
+      <!-- Graphic design (whole piece shows, never cropped) -->
+      <figure class="work-item design-item" data-category="design">
+        <img src="images/trust-you-cover.jpg" alt="'Trust You' single cover art designed by RJ Flemister">
+        <figcaption>&ldquo;Trust You&rdquo; — single cover art</figcaption>
+      </figure>
+      <figure class="work-item design-item" data-category="design">
+        <img src="images/flemo-logo.png" alt="Character logo design by RJ Flemister">
+        <figcaption>Logo design — character brand mark</figcaption>
+      </figure>
+      <figure class="work-item design-item" data-category="design">
+        <img src="images/rj-gold-graphic.png" alt="Gold RJ brand graphic designed by RJ Flemister">
+        <figcaption>Brand graphic — RJ monogram</figcaption>
+      </figure>
+
+      <!-- Portrait photography -->
+      <figure class="work-item" data-category="portraits">
+        <img src="images/studio-portrait-1.jpg" alt="Studio portrait of a woman in a black dress">
+      </figure>
+      <figure class="work-item" data-category="portraits">
+        <img src="images/studio-portrait-2.jpg" alt="Studio portrait of a man in a suit">
+      </figure>
+      <figure class="work-item" data-category="portraits">
+        <img src="images/studio-portrait-3.jpg" alt="Studio portrait of a woman in an orange graphic tee">
+      </figure>
+      <figure class="work-item" data-category="portraits">
+        <img src="images/studio-portrait-4.jpg" alt="Studio portrait of a woman with glasses">
+      </figure>
+      <figure class="work-item" data-category="portraits">
+        <img src="images/studio-portrait-5.jpg" alt="Creative portrait of a woman in a purple gown with balloons">
+      </figure>
+      <figure class="work-item" data-category="portraits">
+        <img src="images/studio-portrait-6.jpg" alt="Studio portrait of a couple">
+      </figure>
+      <figure class="work-item" data-category="portraits">
+        <img src="images/rj-seated.png" alt="Studio portrait of a man in a yellow cap">
+      </figure>
+      <figure class="work-item" data-category="portraits">
+        <img src="images/rj-portrait.png" alt="Studio portrait of a man in a blue suit">
+      </figure>
+
+      <!-- Preschool picture day -->
+      <figure class="work-item" data-category="picture-day">
+        <img src="images/school-1.jpg" alt="Preschool picture day portrait of a young girl in a pink cardigan">
+      </figure>
+      <figure class="work-item" data-category="picture-day">
+        <img src="images/school-2.jpg" alt="Preschool picture day portrait of a young boy holding an apple">
+      </figure>
+      <figure class="work-item" data-category="picture-day">
+        <img src="images/school-3.jpg" alt="Preschool picture day portrait of a young boy with number blocks">
+      </figure>
+      <figure class="work-item" data-category="picture-day">
+        <img src="images/school-4.jpg" alt="Preschool picture day portrait of a young boy sitting on a stool">
+      </figure>
+      <figure class="work-item" data-category="picture-day">
+        <img src="images/school-5.jpg" alt="Group photo of a school in front of a barn building">
+      </figure>
+
+      <!-- Events and lifestyle -->
+      <figure class="work-item" data-category="events">
+        <img src="images/event-singing.jpg" alt="Singer performing at a live event">
+      </figure>
+      <figure class="work-item" data-category="events">
+        <img src="images/lifestyle-street.jpg" alt="Lifestyle portrait of a young woman by a red bike rack">
+      </figure>
+      <figure class="work-item" data-category="events">
+        <img src="images/family-outdoor.jpg" alt="Family portrait outdoors in the woods">
+      </figure>
+
+    </div>
+
+    <p class="picture-day-link">Booking picture day for a school? <a href="picture-day.html">See how it works, with parent prices</a>.</p>
+  </main>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="section about">
+    <img class="about-photo" src="images/rj-camera.jpg" alt="RJ Flemister holding his camera">
+    <div>
+      <h2 class="section-title">About Me</h2>
+      <p>Thank you for visiting my website. Feel free to look around and explore my work — from branding and graphic design to photography and creative content, and everything in between.</p>
+      <p>I'm passionate about bringing visions to life, and I can't wait to connect with you to discuss how we can make your ideas shine.</p>
+      <p class="signature">— RJ</p>
+      <p class="specialties"><strong>I specialize in:</strong> graphic design, brand identity, portraits, events, lifestyle, and creative content.</p>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section id="testimonials" class="section">
+    <h2 class="section-title">Kind Words</h2>
+    <blockquote>
+      <p>&ldquo;Flemo360 went above and BEYOND for my photoshoot. I came in with little vision and very nervous about doing a real photoshoot. I left with full confidence that the pictures would come out as a masterpiece. RJ has an eye for detail, a passion for his craft, and creative imagination to pull out the best in even the most reserved person. I will be booking again very soon. Thank you for the amazing friendly, personal and professional service that you provided me.&rdquo;</p>
+      <cite>— Ronald Parrish</cite>
+    </blockquote>
+    <blockquote>
+      <p>&ldquo;Such an amazing experience! Fun vibes, the smiles and laughs are real, and the proof is in the photo captured! 10/10 ABSOLUTELY RECOMMEND.&rdquo;</p>
+      <cite>— Bri Will</cite>
+    </blockquote>
+  </section>
+
+  <!-- ================= CONTACT / FOOTER ================= -->
+  <footer id="contact" class="site-footer">
+    <h2 class="section-title">Let's Connect!</h2>
+    <p>Booking portraits, events, and design work in Houston, Texas.</p>
+    <p><a class="button" href="mailto:iamrjflemister@gmail.com">iamrjflemister@gmail.com</a></p>
+    <p><a href="https://www.linkedin.com/in/ronald-flemister-748b23339/">Find me on LinkedIn</a></p>
+    <p class="fine-print">&copy; 2026 RJ Flemister. All rights reserved.</p>
+  </footer>
+
+  <!-- The small script that powers the gallery filter -->
+  <script src="script.js"></script>
+</body>
+</html>
