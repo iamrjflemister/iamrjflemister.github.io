@@ -1,5 +1,5 @@
 /* ============================================================
-   RJ Flemister — Portfolio
+   The Foundry — Website
    Plain CSS: no frameworks, so every rule here is readable.
    Look: The Foundry brand — cinematic near-black, silver,
    molten orange accent, tall condensed headlines (Bebas Neue)
@@ -110,11 +110,12 @@ h3 {
   display: flex;
   align-items: center;
   padding: 4rem 5%;
-  /* RJ's photo as the background, under a dark layer so text reads.
-     The dark layer is strongest on the left, where the text sits. */
+  /* Molten metal pour photo as the background, under a dark layer
+     so text reads. The dark layer is strongest on the left,
+     where the text sits. */
   background-image:
     linear-gradient(to right, rgba(8, 8, 10, 0.88) 30%, rgba(8, 8, 10, 0.45) 70%, rgba(8, 8, 10, 0.35)),
-    url("images/rj-hero.png");
+    url("images/foundry-hero.png");
   background-size: cover;
   background-position: center;
 }
@@ -147,6 +148,51 @@ h3 {
   font-style: italic;
   color: #cccccc;
   margin: 0 0 1.75rem;
+}
+
+/* ---------- Services (booking cards) ---------- */
+/* Four cards: portraits, brand shoot, event coverage.
+   The grid wraps to fewer columns on narrow screens. */
+.services-intro {
+  color: #cccccc;
+  margin: -0.75rem 0 2rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.service-card {
+  background-color: #1a1a20; /* same dark card as the reviews */
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+/* Small orange label naming the service type */
+.service-category {
+  font-family: "Bebas Neue", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  color: #FF7A1A;
+  margin: 0 0 0.25rem;
+}
+
+.service-name {
+  font-family: "Bebas Neue", "Arial Narrow", Arial, sans-serif;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: #fff8ea;
+  margin: 0 0 0.25rem;
+}
+
+.service-price {
+  font-family: "Bebas Neue", "Arial Narrow", Arial, sans-serif;
+  font-size: 2rem;
+  color: #FF7A1A;
+  margin: 0 0 0.75rem;
 }
 
 /* ---------- Picture Day page banner (shorter hero) ---------- */
